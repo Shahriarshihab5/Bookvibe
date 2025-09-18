@@ -6,6 +6,26 @@ import {getStoredReadList} from '../../Utility/addtDB';
 import Book from "../Book/Book";
 const ListedBooks = () => {
 const  [readList,setReadList] = useState([]);
+const [sort,setSort] = useState([]);
+const handleSort = sortType =>{
+setSort (sortType);
+
+
+if(sortType === 'No of Pages'){
+
+const sortedReadList = [...readList].sort((a,b)=>a.totalPages - b.totalPages);
+setReadList(sortedReadList);
+
+}
+if(sortType ==="Ratings"){
+
+const sortedRatingList =[...readList].sort((a,b)=>a.rating -b.rating);
+setReadList(sortedRatingList);
+
+}
+
+
+}
 
 
 
@@ -27,6 +47,18 @@ setReadList(readBookList);
 
   return (
     <div>
+
+<div className="dropdown">
+  <div tabIndex={0} role="button" className="btn m-1">{
+  sort ?`sort by : ${sort}`  : 'Sort By'
+  }</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+    <li onClick = {()=>handleSort('Ratings')}><a>Ratings</a></li>
+    <li onClick = {()=>handleSort('No of Pages')}><a>No of pages</a></li>
+  </ul>
+</div>
+
+
       <h3 className="text-3xl my-8"> Listed Books</h3>
       <Tabs>
         <TabList>

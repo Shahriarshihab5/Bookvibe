@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
 const Navbar = () => {
 const links =<>
 
-<li><NavLink to="/">Home</NavLink></li>
+<NavLink to="/">Home</NavLink>
        
        <NavLink to="/ListedBooks">Listed Books</NavLink>
 
@@ -28,7 +28,7 @@ const links =<>
     <a className="btn btn-ghost text-xl">Book Vibe</a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 flex gap-4">
    {links}
     </ul>
   </div>
