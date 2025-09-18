@@ -11,6 +11,11 @@ const links =<>
 
 
 </>
+const home =<>
+
+<NavLink to="/"><button className='btn'>Book vibe</button></NavLink>
+
+</>
 
     return (
 <div className="navbar bg-base-100 shadow-sm">
@@ -25,7 +30,7 @@ const links =<>
     {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Book Vibe</a>
+    {home}
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 flex gap-4">
